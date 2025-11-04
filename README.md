@@ -1,0 +1,1 @@
+# cpp-industrial-monitor
