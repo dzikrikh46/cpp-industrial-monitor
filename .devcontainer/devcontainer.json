@@ -1,11 +1,19 @@
 {
   "name": "C++ Industrial Monitor",
+  // Gunakan image resmi dari Microsoft yang sudah berisi C++ dan tool dasar
   "image": "mcr.microsoft.com/devcontainers/cpp:1-cpp-ubuntu-22.04",
+
+  // Install tools tambahan seperti CMake
   "features": {
     "ghcr.io/devcontainers/features/cmake:1": {},
     "ghcr.io/devcontainers/features/git:1": {}
   },
+
+  // Perintah yang dijalankan setelah container dibuat
+  // Kita akan menginstall vcpkg dan dependensinya di sini
   "postCreateCommand": "git clone https://github.com/microsoft/vcpkg.git && ./vcpkg/bootstrap-vcpkg.sh && ./vcpkg integrate install && ./vcpkg install crow nlohmann-json",
+
+  // Ekstensi VS Code yang akan otomatis terinstall di Codespace
   "customizations": {
     "vscode": {
       "extensions": [
