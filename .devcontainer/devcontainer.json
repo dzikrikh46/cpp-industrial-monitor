@@ -1,12 +1,26 @@
 {
-  "name": "C++ Industrial Monitor - Manual Install",
+  "name": "C++ Industrial Monitor",
   "image": "mcr.microsoft.com/devcontainers/cpp:1-cpp-ubuntu-22.04",
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y cmake",
+  "features": {
+    "ghcr.io/devcontainers/features/cmake:1": {},
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "postCreateCommand": "git clone https://github.com/microsoft/vcpkg.git && ./vcpkg/bootstrap-vcpkg.sh && ./vcpkg integrate install && ./vcpkg install crow nlohmann-json",
   "customizations": {
     "vscode": {
       "extensions": [
+        // --- Inti C++ ---
         "ms-vscode.cpptools",
-        "ms-vscode.cmake-tools"
+        "ms-vscode.cmake-tools",
+        // --- Peningkatan Kode & Debugging ---
+        "vadimcn.vscode-lldb",
+        "llvm-vs-code-extensions.vscode-clangd",
+        // --- Pengembangan Frontend ---
+        "esbenp.prettier-vscode",
+        "ecmel.vscode-html-css",
+        // --- Produktivitas Umum ---
+        "eamodio.gitlens",
+        "PKief.material-icon-theme"
       ]
     }
   }
